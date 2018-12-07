@@ -1,10 +1,12 @@
 ﻿using System;
+
 namespace RomanNumerals
 {
-    public class RomanNumeralGenerator
+    public class RomanNumeralGenerator : IRomanNumeralGenerator
     {
-        public RomanNumeralGenerator()
+        public string Generate(int number)
         {
+            return "I";
         }
     }
 }
