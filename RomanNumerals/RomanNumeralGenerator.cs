@@ -17,45 +17,68 @@ namespace RomanNumerals
         {
             StringBuilder romanNumerals = new StringBuilder();
 
-            if (number >= 1000)
-            {
-                SetThousandsNumeral(romanNumerals, ref number);
-            }
+            // 1000's
+            SetThousandsNumeral(romanNumerals, ref number);
 
-            if (number >= 100)
-            {
-                SetNumerals(romanNumerals, ref number, 100, 'C', 'D', 'M');
-            }
+            // 100's
+            SetNumerals(romanNumerals, ref number, 100, 'C', 'D', 'M');
 
-            if (number >= 10)
-            {
-                SetNumerals(romanNumerals, ref number, 10, 'X', 'L', 'C');
-            }
+            // 10's
+            SetNumerals(romanNumerals, ref number, 10, 'X', 'L', 'C');
 
+            // 1's
             SetUnitNumeral(romanNumerals, number);
 
             return romanNumerals.ToString();
         }
 
+        /// <summary>
+        /// Thousands only adds the required number of M letters. So
+        /// this method only divises the fraction and adds the appropriate
+        /// number of Ms.
+        /// </summary>
+        /// <param name="numerals">Current numerals</param>
+        /// <param name="number">Number to convert</param>
         private void SetThousandsNumeral(StringBuilder numerals, ref int number)
         {
+            if (number < 1000)
+                return;
+
             int fraction = number / 1000;
             number -= fraction * 1000;
 
             numerals.Append('M', fraction);
         }
 
+        /// <summary>
+        /// A general function for 10s and 100s as the logic is identical. Same would
+        /// be true for thousands if it had a mid and next order numeral.
+        /// Given a number, divise the fraction, apply the pre mid or pre next rule then exit.
+        /// Otherwise, test if we're midway and add the midway numeral followed by any 
+        /// more numerals to make up the sum of the number.
+        /// </summary>
+        /// <param name="numerals">Current numerals</param>
+        /// <param name="number">Number to convert</param>
+        /// <param name="units">Units/order (10s or 100s)</param>
+        /// <param name="numeral">Main numeral for this unit i.e. X or C</param>
+        /// <param name="midNumeral">Mid point numeral like 50 or 500.</param>
+        /// <param name="nextNumeral">Next order numeral i.e. C for 100s after 10s. Used for numerals in the 9s.</param>
         private void SetNumerals(StringBuilder numerals, ref int number, int units, char numeral, char midNumeral, char nextNumeral)
         {
+            if (number < units)
+                return;
+
             int fraction = number / units;
 
             if (fraction == 4)
             {
+                // i.e. 40 XL
                 numerals.Append(numeral);
                 numerals.Append(midNumeral);
             }
             else if (fraction == 9)
             {
+                // i.e. 90 XC
                 numerals.Append(numeral);
                 numerals.Append(nextNumeral);
             }
@@ -63,7 +86,10 @@ namespace RomanNumerals
             {
                 if (fraction >= 5)
                 {
+                    // i.e. L or D
                     numerals.Append(midNumeral);
+
+                    // remove midway units to prevent adding numerals to make the mid numeral
                     number -= 5 * units;
                     fraction = number / units;
                 }
@@ -71,6 +97,7 @@ namespace RomanNumerals
                 numerals.Append(numeral, fraction);
             }
 
+            // consume the number for the numerals appeneded
             number -= fraction * units;
         }
     

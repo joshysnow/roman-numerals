@@ -2,7 +2,7 @@
 
 namespace RomanNumerals
 {
-    [TestFixture()]
+    [TestFixture]
     public class RomanNumeralGeneratorTest
     {
         private RomanNumeralGenerator _generator = new RomanNumeralGenerator();
@@ -362,6 +362,13 @@ namespace RomanNumerals
         {
             string result = _generator.Generate(2500);
             Assert.AreEqual("MMD", result);
+        }
+
+        [Test]
+        public void Translate_2889_MMDCCCLXXXIX()
+        {
+            string result = _generator.Generate(2889);
+            Assert.AreEqual("MMDCCCLXXXIX", result);
         }
 
         [Test]
