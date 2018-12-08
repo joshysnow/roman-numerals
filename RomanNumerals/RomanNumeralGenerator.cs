@@ -10,7 +10,7 @@ namespace RomanNumerals
 
             if (number >= 10)
             {
-                SetTensNumeral(romanNumerals, number);
+                SetTensNumeral(romanNumerals, ref number);
             }
 
             romanNumerals.Append(GetUnitNumeral(number));
@@ -18,18 +18,13 @@ namespace RomanNumerals
             return romanNumerals.ToString();
         }
 
-        private void SetTensNumeral(StringBuilder numerals, int number)
+        private void SetTensNumeral(StringBuilder numerals, ref int number)
         {
             int fraction = number / 10;
 
-            if (fraction == 1)
-            {
-                numerals.Append("X");
-            }
-            else
-            {
-                numerals.Append('X', fraction);
-            }
+            numerals.Append('X', fraction);
+
+            number -= fraction * 10;
         }
 
         private string GetUnitNumeral(int number)

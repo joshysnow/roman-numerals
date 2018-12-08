@@ -86,10 +86,59 @@ namespace RomanNumerals
         }
 
         [Test()]
+        public void Translate_11_XI()
+        {
+            string result = _generator.Generate(11);
+            Assert.AreEqual("XI", result);
+        }
+
+        [Test()]
+        public void Translate_12_XII()
+        {
+            string result = _generator.Generate(12);
+            Assert.AreEqual("XII", result);
+        }
+
+        [Test()]
+        public void Translate_15_XV()
+        {
+            string result = _generator.Generate(15);
+            Assert.AreEqual("XV", result);
+        }
+
+        [Test()]
+        public void Translate_19_XIX()
+        {
+            string result = _generator.Generate(19);
+            Assert.AreEqual("XIX", result);
+        }
+
+        [Test()]
         public void Translate_20_XX()
         {
             string result = _generator.Generate(20);
             Assert.AreEqual("XX", result);
+        }
+
+        [Test()]
+        public void Translate_25_XXV()
+        {
+            string result = _generator.Generate(25);
+            Assert.AreEqual("XXV", result);
+        }
+
+        [Test()]
+        public void Translate_30_XXX()
+        {
+            string result = _generator.Generate(30);
+            Assert.AreEqual("XXX", result);
+        }
+
+        [Test()]
+        public void Translate_35_XXXV()
+        {
+            string result = _generator.Generate(35);
+            Assert.AreEqual("XXXV", result);
         }
     }
 }
