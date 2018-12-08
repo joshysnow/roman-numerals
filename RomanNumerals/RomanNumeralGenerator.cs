@@ -35,6 +35,10 @@ namespace RomanNumerals
             {
                 numerals.Append("XL");
             }
+            else if (fraction == 9)
+            {
+                numerals.Append("XC");
+            }
             else
             {
                 if (fraction >= 5)

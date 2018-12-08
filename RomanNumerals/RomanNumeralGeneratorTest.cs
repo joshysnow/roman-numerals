@@ -188,5 +188,19 @@ namespace RomanNumerals
             string result = _generator.Generate(85);
             Assert.AreEqual("LXXXV", result);
         }
+
+        [Test]
+        public void Translate_90_XC()
+        {
+            string result = _generator.Generate(90);
+            Assert.AreEqual("XC", result);
+        }
+
+        [Test]
+        public void Translate_95_XCV()
+        {
+            string result = _generator.Generate(95);
+            Assert.AreEqual("XCV", result);
+        }
     }
 }
