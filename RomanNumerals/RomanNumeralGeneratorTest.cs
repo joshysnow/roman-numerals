@@ -84,5 +84,12 @@ namespace RomanNumerals
             string result = _generator.Generate(10);
             Assert.AreEqual("X", result);
         }
+
+        [Test()]
+        public void Translate_20_XX()
+        {
+            string result = _generator.Generate(20);
+            Assert.AreEqual("XX", result);
+        }
     }
 }

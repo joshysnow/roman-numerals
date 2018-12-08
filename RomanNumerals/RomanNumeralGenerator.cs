@@ -10,21 +10,26 @@ namespace RomanNumerals
 
             if (number >= 10)
             {
-                int fraction = number / 10;
-
-                if (fraction == 1)
-                {
-                    romanNumerals.Append("X");
-                }
-                else
-                {
-                    romanNumerals.Append('X', fraction);
-                }
+                SetTensNumeral(romanNumerals, number);
             }
 
             romanNumerals.Append(GetUnitNumeral(number));
 
             return romanNumerals.ToString();
+        }
+
+        private void SetTensNumeral(StringBuilder numerals, int number)
+        {
+            int fraction = number / 10;
+
+            if (fraction == 1)
+            {
+                numerals.Append("X");
+            }
+            else
+            {
+                numerals.Append('X', fraction);
+            }
         }
 
         private string GetUnitNumeral(int number)
