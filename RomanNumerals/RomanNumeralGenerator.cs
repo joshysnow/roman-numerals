@@ -36,7 +36,14 @@ namespace RomanNumerals
         {
             int fraction = number / 100;
 
-            numerals.Append('C', fraction);
+            if (fraction == 4)
+            {
+                numerals.Append("CD");
+            }
+            else
+            {
+                numerals.Append('C', fraction);
+            }
 
             number -= fraction * 100;
         }
