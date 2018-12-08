@@ -286,5 +286,54 @@ namespace RomanNumerals
             string result = _generator.Generate(500);
             Assert.AreEqual("D", result);
         }
+
+        [Test]
+        public void Translate_545_DXLV()
+        {
+            string result = _generator.Generate(545);
+            Assert.AreEqual("DXLV", result);
+        }
+
+        [Test]
+        public void Translate_550_DL()
+        {
+            string result = _generator.Generate(550);
+            Assert.AreEqual("DL", result);
+        }
+
+        [Test]
+        public void Translate_575_DLXXV()
+        {
+            string result = _generator.Generate(575);
+            Assert.AreEqual("DLXXV", result);
+        }
+
+        [Test]
+        public void Translate_900_CM()
+        {
+            string result = _generator.Generate(900);
+            Assert.AreEqual("CM", result);
+        }
+
+        [Test]
+        public void Translate_950_CML()
+        {
+            string result = _generator.Generate(950);
+            Assert.AreEqual("CML", result);
+        }
+
+        [Test]
+        public void Translate_990_CMXC()
+        {
+            string result = _generator.Generate(990);
+            Assert.AreEqual("CMXC", result);
+        }
+
+        [Test]
+        public void Translate_999_CMXCIX()
+        {
+            string result = _generator.Generate(999);
+            Assert.AreEqual("CMXCIX", result);
+        }
     }
 }
