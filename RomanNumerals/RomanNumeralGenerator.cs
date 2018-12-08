@@ -22,7 +22,14 @@ namespace RomanNumerals
         {
             int fraction = number / 10;
 
-            numerals.Append('X', fraction);
+            if (fraction == 4)
+            {
+                numerals.Append("XL");
+            }
+            else
+            {
+                numerals.Append('X', fraction);
+            }
 
             number -= fraction * 10;
         }
