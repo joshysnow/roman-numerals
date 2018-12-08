@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Text;
 
 namespace RomanNumerals
 {
@@ -6,7 +6,25 @@ namespace RomanNumerals
     {
         public string Generate(int number)
         {
-            return GetUnitNumeral(number);
+            StringBuilder romanNumerals = new StringBuilder();
+
+            if (number >= 10)
+            {
+                int fraction = number / 10;
+
+                if (fraction == 1)
+                {
+                    romanNumerals.Append("X");
+                }
+                else
+                {
+                    romanNumerals.Append('X', fraction);
+                }
+            }
+
+            romanNumerals.Append(GetUnitNumeral(number));
+
+            return romanNumerals.ToString();
         }
 
         private string GetUnitNumeral(int number)

@@ -77,5 +77,12 @@ namespace RomanNumerals
             string result = _generator.Generate(9);
             Assert.AreEqual("IX", result);
         }
+
+        [Test()]
+        public void Translate_10_X()
+        {
+            string result = _generator.Generate(10);
+            Assert.AreEqual("X", result);
+        }
     }
 }
