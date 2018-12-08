@@ -2,8 +2,17 @@
 
 namespace RomanNumerals
 {
+    /// <summary>
+    /// Converts numbers into roman numeral strings.
+    /// </summary>
     public class RomanNumeralGenerator : IRomanNumeralGenerator
     {
+        /// <summary>
+        /// Given a base10 <paramref name="number"/> return the equivalent
+        /// in roman numerals.
+        /// </summary>
+        /// <returns>Roman numerals for given input</returns>
+        /// <param name="number">Base10 number</param>
         public string Generate(int number)
         {
             StringBuilder romanNumerals = new StringBuilder();
@@ -41,6 +50,12 @@ namespace RomanNumerals
             number -= fraction * 10;
         }
 
+        /// <summary>
+        /// Given a number as a unit (1-9) return the
+        /// roman numeral equivalent or empty string.
+        /// </summary>
+        /// <returns>A roman numeral or nothing</returns>
+        /// <param name="number">Base10 unit number</param>
         private string GetUnitNumeral(int number)
         {
             switch (number)
