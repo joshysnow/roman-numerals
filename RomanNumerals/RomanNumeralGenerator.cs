@@ -19,12 +19,12 @@ namespace RomanNumerals
 
             if (number >= 100)
             {
-                SetHundredsNumeral(romanNumerals, ref number);
+                SetNumerals(romanNumerals, ref number, 100, 'C', 'D', 'M');
             }
 
             if (number >= 10)
             {
-                SetTensNumeral(romanNumerals, ref number);
+                SetNumerals(romanNumerals, ref number, 10, 'X', 'L', 'C');
             }
 
             SetUnitNumeral(romanNumerals, number);
@@ -32,47 +32,33 @@ namespace RomanNumerals
             return romanNumerals.ToString();
         }
 
-        private void SetHundredsNumeral(StringBuilder numerals, ref int number)
+        private void SetNumerals(StringBuilder numerals, ref int number, int units, char numeral, char midNumeral, char nextNumeral)
         {
-            int fraction = number / 100;
+            int fraction = number / units;
 
             if (fraction == 4)
             {
-                numerals.Append("CD");
-            }
-            else
-            {
-                numerals.Append('C', fraction);
-            }
-
-            number -= fraction * 100;
-        }
-
-        private void SetTensNumeral(StringBuilder numerals, ref int number)
-        {
-            int fraction = number / 10;
-
-            if (fraction == 4)
-            {
-                numerals.Append("XL");
+                numerals.Append(numeral);
+                numerals.Append(midNumeral);
             }
             else if (fraction == 9)
             {
-                numerals.Append("XC");
+                numerals.Append(numeral);
+                numerals.Append(nextNumeral);
             }
             else
             {
                 if (fraction >= 5)
                 {
-                    numerals.Append("L");
-                    number -= 50;
-                    fraction = number / 10;
+                    numerals.Append(midNumeral);
+                    number -= 5 * units;
+                    fraction = number / units;
                 }
 
-                numerals.Append('X', fraction);
+                numerals.Append(numeral, fraction);
             }
 
-            number -= fraction * 10;
+            number -= fraction * units;
         }
     
         /// <summary>

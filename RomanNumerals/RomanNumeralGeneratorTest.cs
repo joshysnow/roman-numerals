@@ -279,5 +279,12 @@ namespace RomanNumerals
             string result = _generator.Generate(475);
             Assert.AreEqual("CDLXXV", result);
         }
+
+        [Test]
+        public void Translate_500_D()
+        {
+            string result = _generator.Generate(500);
+            Assert.AreEqual("D", result);
+        }
     }
 }
