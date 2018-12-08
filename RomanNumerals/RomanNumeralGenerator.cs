@@ -17,6 +17,11 @@ namespace RomanNumerals
         {
             StringBuilder romanNumerals = new StringBuilder();
 
+            if (number >= 100)
+            {
+                SetHundredsNumeral(romanNumerals, ref number);
+            }
+
             if (number >= 10)
             {
                 SetTensNumeral(romanNumerals, ref number);
@@ -25,6 +30,15 @@ namespace RomanNumerals
             SetUnitNumeral(romanNumerals, number);
 
             return romanNumerals.ToString();
+        }
+
+        private void SetHundredsNumeral(StringBuilder numerals, ref int number)
+        {
+            int fraction = number / 100;
+
+            numerals.Append('C', fraction);
+
+            number -= fraction * 100;
         }
 
         private void SetTensNumeral(StringBuilder numerals, ref int number)
