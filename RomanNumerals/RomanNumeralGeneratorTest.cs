@@ -202,5 +202,12 @@ namespace RomanNumerals
             string result = _generator.Generate(95);
             Assert.AreEqual("XCV", result);
         }
+
+        [Test]
+        public void Translate_99_XCIX()
+        {
+            string result = _generator.Generate(99);
+            Assert.AreEqual("XCIX", result);
+        }
     }
 }
