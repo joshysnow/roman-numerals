@@ -309,6 +309,20 @@ namespace RomanNumerals
         }
 
         [Test]
+        public void Translate_800_DCCC()
+        {
+            string result = _generator.Generate(800);
+            Assert.AreEqual("DCCC", result);
+        }
+
+        [Test]
+        public void Translate_875_DCCCLXXV()
+        {
+            string result = _generator.Generate(875);
+            Assert.AreEqual("DCCCLXXV", result);
+        }
+
+        [Test]
         public void Translate_900_CM()
         {
             string result = _generator.Generate(900);
@@ -334,6 +348,27 @@ namespace RomanNumerals
         {
             string result = _generator.Generate(999);
             Assert.AreEqual("CMXCIX", result);
+        }
+
+        [Test]
+        public void Translate_1000_M()
+        {
+            string result = _generator.Generate(1000);
+            Assert.AreEqual("M", result);
+        }
+
+        [Test]
+        public void Translate_2500_MMD()
+        {
+            string result = _generator.Generate(2500);
+            Assert.AreEqual("MMD", result);
+        }
+
+        [Test]
+        public void Translate_3999_MMMCMXCIX()
+        {
+            string result = _generator.Generate(3999);
+            Assert.AreEqual("MMMCMXCIX", result);
         }
     }
 }

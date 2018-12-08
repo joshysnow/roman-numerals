@@ -17,6 +17,11 @@ namespace RomanNumerals
         {
             StringBuilder romanNumerals = new StringBuilder();
 
+            if (number >= 1000)
+            {
+                SetThousandsNumeral(romanNumerals, ref number);
+            }
+
             if (number >= 100)
             {
                 SetNumerals(romanNumerals, ref number, 100, 'C', 'D', 'M');
@@ -30,6 +35,14 @@ namespace RomanNumerals
             SetUnitNumeral(romanNumerals, number);
 
             return romanNumerals.ToString();
+        }
+
+        private void SetThousandsNumeral(StringBuilder numerals, ref int number)
+        {
+            int fraction = number / 1000;
+            number -= fraction * 1000;
+
+            numerals.Append('M', fraction);
         }
 
         private void SetNumerals(StringBuilder numerals, ref int number, int units, char numeral, char midNumeral, char nextNumeral)
