@@ -28,6 +28,13 @@ namespace RomanNumerals
             }
             else
             {
+                if (fraction >= 5)
+                {
+                    numerals.Append("L");
+                    number -= 50;
+                    fraction = number / 10;
+                }
+
                 numerals.Append('X', fraction);
             }
 

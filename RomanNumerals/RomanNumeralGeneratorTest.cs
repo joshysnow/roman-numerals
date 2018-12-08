@@ -154,5 +154,33 @@ namespace RomanNumerals
             string result = _generator.Generate(45);
             Assert.AreEqual("XLV", result);
         }
+
+        [Test()]
+        public void Translate_50_L()
+        {
+            string result = _generator.Generate(50);
+            Assert.AreEqual("L", result);
+        }
+
+        [Test()]
+        public void Translate_55_LV()
+        {
+            string result = _generator.Generate(55);
+            Assert.AreEqual("LV", result);
+        }
+
+        [Test()]
+        public void Translate_60_LX()
+        {
+            string result = _generator.Generate(60);
+            Assert.AreEqual("LX", result);
+        }
+
+        [Test()]
+        public void Translate_65_LXV()
+        {
+            string result = _generator.Generate(65);
+            Assert.AreEqual("LXV", result);
+        }
     }
 }
