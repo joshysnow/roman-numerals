@@ -16,6 +16,11 @@ namespace RomanNumerals
         /// <param name="number">Base10 number</param>
         public string Generate(int number)
         {
+            if (number < 0)
+            {
+                throw new ArgumentOutOfRangeException("number", "Must be greater than or equal to 0");
+            }
+
             StringBuilder romanNumerals = new StringBuilder();
 
             // 1000's

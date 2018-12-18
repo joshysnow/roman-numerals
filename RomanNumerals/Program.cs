@@ -27,8 +27,15 @@ namespace RomanNumerals
 
                 if (int.TryParse(input, out number))
                 {
-                    output = generator.Generate(number);
-                    Console.WriteLine(" = " + output + "\n");
+                    try
+                    {
+                        output = generator.Generate(number);
+                        Console.WriteLine(" = " + output + "\n");
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        Console.WriteLine("Number must be at least 0 or more\n");
+                    }
                 }
                 else
                 {
