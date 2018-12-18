@@ -16,11 +16,6 @@ namespace RomanNumerals
         /// <param name="number">Base10 number</param>
         public string Generate(int number)
         {
-            if (number < 1 || number > 3999)
-            {
-                throw new ArgumentOutOfRangeException("number", "Must be between 1 and 3999 inclusively");
-            }
-
             StringBuilder romanNumerals = new StringBuilder();
 
             // 1000's

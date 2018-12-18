@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace RomanNumerals
 {
@@ -7,18 +6,6 @@ namespace RomanNumerals
     public class RomanNumeralGeneratorTest
     {
         private RomanNumeralGenerator _generator = new RomanNumeralGenerator();
-
-        [Test]
-        public void Translate_0_throws_exception()
-        {
-            Assert.Throws<ArgumentOutOfRangeException>(() => _generator.Generate(0));
-        }
-
-        [Test]
-        public void Translate_4000_throws_exception()
-        {
-            Assert.Throws<ArgumentOutOfRangeException>(() => _generator.Generate(4000));
-        }
 
         [Test]
         public void Translate_1_I()
