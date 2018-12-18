@@ -13,6 +13,7 @@ namespace RomanNumerals
         /// in roman numerals.
         /// </summary>
         /// <returns>Roman numerals for given input</returns>
+        /// <exception cref="ArgumentOutOfRangeException"/>
         /// <param name="number">Base10 number</param>
         public string Generate(int number)
         {
